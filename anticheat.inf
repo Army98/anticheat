@@ -1,0 +1,62 @@
+;
+; anticheat.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = anticheat.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+anticheat.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%anticheat.DeviceDesc% = anticheat_Device, Root\anticheat ; TODO: edit hw-id
+
+[anticheat_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+anticheat.sys
+
+;-------------- Service installation
+[anticheat_Device.NT.Services]
+AddService = anticheat,%SPSVCINST_ASSOCSERVICE%, anticheat_Service_Inst
+
+; -------------- anticheat driver install sections
+[anticheat_Service_Inst]
+DisplayName    = %anticheat.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\anticheat.sys
+
+[anticheat_Device.NT.Wdf]
+KmdfService = anticheat, anticheat_wdfsect
+
+[anticheat_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "anticheat Installation Disk"
+anticheat.DeviceDesc = "anticheat Device"
+anticheat.SVCDESC = "anticheat Service"
