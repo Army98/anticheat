@@ -30,12 +30,18 @@
     <ClInclude Include="ImageNotifyRoutine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CheckDebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ImageNotifyRoutine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckDebug.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
