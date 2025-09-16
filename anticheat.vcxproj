@@ -107,14 +107,14 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CheckDebug.h" />
+    <ClInclude Include="CheckDebug\check_debug.h" />
     <ClInclude Include="driver.h" />
-    <ClInclude Include="ImageNotifyRoutine.h" />
+    <ClInclude Include="NotifyRoutines\image_notify_routine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CheckDebug.c" />
+    <ClCompile Include="CheckDebug\check_debug.c" />
     <ClCompile Include="driver.c" />
-    <ClCompile Include="ImageNotifyRoutine.c" />
+    <ClCompile Include="NotifyRoutines\image_notify_routine.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

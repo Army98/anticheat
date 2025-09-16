@@ -24,13 +24,13 @@
     </Inf>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheckDebug\check_debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="driver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ImageNotifyRoutine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckDebug.h">
+    <ClInclude Include="NotifyRoutines\image_notify_routine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClCompile Include="driver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ImageNotifyRoutine.c">
+    <ClCompile Include="NotifyRoutines\image_notify_routine.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CheckDebug.c">
+    <ClCompile Include="CheckDebug\check_debug.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

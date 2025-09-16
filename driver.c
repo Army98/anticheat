@@ -1,4 +1,5 @@
 #include "driver.h"
+#include "NotifyRoutines/image_notify_routine.h"
 #include <ntifs.h>
 
 
