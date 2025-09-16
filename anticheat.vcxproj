@@ -108,9 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="driver.h" />
+    <ClInclude Include="ImageNotifyRoutine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.c" />
+    <ClCompile Include="ImageNotifyRoutine.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
