@@ -1,3 +1,5 @@
+Note: I'm not saying that kernel level anticheats do a perfect job (actually most of what I do here is easily bypassable with a hypervisor and some .data section hooks), but I do think they prevent the ability of a paycheat to make a lifetime cheat, and forces them to charge more for the said cheat. 
+---------------------------------------------------------------------------------------------------------------
 Run the following to compile: 
 
 bcdedit /debug on  
