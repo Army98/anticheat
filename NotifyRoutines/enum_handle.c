@@ -1,10 +1,10 @@
 #include "enum_handle.h"
 
 
-int handleCallback()
+NTSTATUS handleCallback()
 {
 	UNICODE_STRING altitude;
-	RtlInitUnicodeString(&altitude, L"370000.1337");
+	RtlInitUnicodeString(&altitude, L"370000");
 
 	RtlZeroMemory(&handle_callback, sizeof(handle_callback));
 	RtlZeroMemory(handle_registration, sizeof(handle_registration));
@@ -25,16 +25,21 @@ int handleCallback()
 	handle_callback.RegistrationContext = NULL;
 	handle_callback.OperationRegistration = handle_registration;
 
-	return 0;
+	regHandle = NULL;
+	NTSTATUS status = ObRegisterCallbacks(&handle_callback, &regHandle);
+	if (!NT_SUCCESS(status))
+		DbgPrintEx(DPFLTR_IHVDRIVER_ID, DPFLTR_ERROR_LEVEL,"ObRegisterCallbacks returned: 0x%X\n", status);
+
+	return STATUS_SUCCESS;
 }
 
 OB_PREOP_CALLBACK_STATUS preHandleCallback(PVOID RegistrationContext, 
 	POB_PRE_OPERATION_INFORMATION OperationInformation)
 {
-	UNREFERENCED_PARAMETER(RegistrationContext);
-	UNREFERENCED_PARAMETER(OperationInformation);
-
 	OB_PREOP_CALLBACK_STATUS CALLBACK_STATUS = OB_PREOP_SUCCESS;
+	
+	UNREFERENCED_PARAMETER(OperationInformation);
+	UNREFERENCED_PARAMETER(RegistrationContext);
 
 	return CALLBACK_STATUS;
 }
