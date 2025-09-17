@@ -6,3 +6,4 @@ bcdedit /debug on
 bcdedit /dbgsettings local  
 bcdedit /set testsigning ON  
 Then reboot.  
+And also if I missed anything and for some reason it doesn't compile then figure it out on your own...
