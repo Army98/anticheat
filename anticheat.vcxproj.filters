@@ -33,6 +33,9 @@
     <ClInclude Include="NotifyRoutines\image_notify_routine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NotifyRoutines\enum_handle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.c">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CheckDebug\check_debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NotifyRoutines\enum_handle.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
