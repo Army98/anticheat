@@ -1,8 +1,12 @@
 #include "enum_handle.h"
 
 
-NTSTATUS handleCallback()
+NTSTATUS HandleCallback()
 {
+	/*
+	* detect processes creating handles on game
+	* detect weird thread handles blah blah 
+	*/
 	UNICODE_STRING altitude;
 	RtlInitUnicodeString(&altitude, L"370000");
 
@@ -38,8 +42,20 @@ OB_PREOP_CALLBACK_STATUS preHandleCallback(PVOID RegistrationContext,
 {
 	OB_PREOP_CALLBACK_STATUS CALLBACK_STATUS = OB_PREOP_SUCCESS;
 	
-	UNREFERENCED_PARAMETER(OperationInformation);
 	UNREFERENCED_PARAMETER(RegistrationContext);
+
+	if (OperationInformation->ObjectType == *PsProcessType)
+	{
+		PEPROCESS targetProcess = (PEPROCESS)OperationInformation->Object;
+		UNREFERENCED_PARAMETER(targetProcess);
+	}
+
+	else if (OperationInformation->ObjectType == *PsThreadType)
+	{
+		PETHREAD targetThread = (PETHREAD)OperationInformation->Object;
+		UNREFERENCED_PARAMETER(targetThread);
+		// later on...
+	}
 
 	return CALLBACK_STATUS;
 }

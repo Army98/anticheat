@@ -9,9 +9,11 @@ NTSTATUS DriverEntry(_In_ PDRIVER_OBJECT DriverObject,
 {
 	NTSTATUS STATUS = STATUS_SUCCESS;
 	UNREFERENCED_PARAMETER(RegistryPath);
-
+		
 	DriverObject->DriverUnload = DriverUnload;
-	STATUS = handleCallback();
+	PsSetLoadImageNotifyRoutine(ImageNotifyRoutine);
+	STATUS = HandleCallback();
+
 
 	return STATUS;
 }
